@@ -90,9 +90,9 @@ def get_sv(pair, r):
     path = three_to_two(stable_volume.boundary())
     l = length(path)
     s = area(path)
-    q = len(path)
+    #q = len(path)
     t = end-start
-    return [q, l, s, t]
+    return [l, s, t]
 
 def get_ov(pair):
     start = time.time()
@@ -101,9 +101,8 @@ def get_ov(pair):
     path = three_to_two(optimal_volume.boundary())
     l = length(path)
     s = area(path)
-    q = len(path)
     t = end-start
-    return [q, l, s, t]
+    return [l, s, t]
 
 def get_op1(pair):
     start = time.time()
@@ -112,9 +111,8 @@ def get_op1(pair):
     path = three_to_two(optimal_1_cycle.path())
     l = length(path)
     s = area(path)
-    q = len(path)
     t = end-start
-    return [q, l, s, t]
+    return [l, s, t]
 
 def main(data):
     pair = get_pair_with_PD(data)
@@ -122,14 +120,4 @@ def main(data):
     sv100 = get_sv(pair, 100)
     ov = get_ov(pair)
     op1 = get_op1(pair)
-    list = [
-            sv10[0],sv100[0],ov[0],op1[0],sv10[1],sv100[1],ov[1],op1[1],sv10[2],sv100[2],ov[2],op1[2],sv10[3],sv100[3],ov[3],op1[3]
-    ]
-    df = pd.DataFrame(list)
-    df.index = ['Q-sv(10%)','Q-sv(1%)','Q-ov', 'Q-op1c', 'L-sv(10%)', 'L-sv(1%)', 'L-ov', 'L-op1c', 'S-sv(10%)', 'S-sv(1%)', 'S-ov', 'S-op1c', 'T-sv(10%)', 'T-sv(1%)', 'T-ov', 'T-op1c']
-    #pl.add_mesh(pv.PointSet(data))
-    #pl.add_mesh(stable_volume.to_pyvista_boundary_mesh(), color="yellow", line_width=2)
-    #pl.add_mesh(optimal_volume.to_pyvista_boundary_mesh(), color="orange", line_width=5)
-    #pl.add_mesh(optimal_1_cycle.to_pyvista_mesh(), color="green", line_width=1)
-    #pl.show()
-    return df
+    return [sv10[0],sv100[0],ov[0],op1[0],sv10[1],sv100[1],ov[1],op1[1],sv10[2],sv100[2],ov[2],op1[2]]
