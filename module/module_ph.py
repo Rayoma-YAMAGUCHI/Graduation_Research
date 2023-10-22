@@ -43,20 +43,25 @@ def length(path):
         length += leng
     return length
 
+#サイクルを構成する単体を並び順に整列する
 def n_order(boundary):
     s = copy.deepcopy(boundary)
-    new_order = [s[0]]
+    order = [s[0]]
+    s.remove(s[0])
     l = len(s)
     for i in range(len(s)):
         for j in range(len(s)):
-            if new_order[i][0] in s[j] or new_order[i][1] in s[j]:
-                if s[j] not in new_order:
-                    new_order.append(s[j])
-                    if len(new_order) == l:
-                        return new_order
+            try:
+                if order[i][0] in s[j] or order[i][1] in s[j]:
+                    order.append(s[j])
                     s.remove(s[j])
                     break
-    return new_order
+            except:
+                if len(order) > l/2:
+                    return order
+                else:
+                    return None
+    return order
 
 def area(boundary):
     new_order = n_order(boundary)
