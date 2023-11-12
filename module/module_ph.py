@@ -3,12 +3,12 @@
 import homcloud.interface as hc #Homcloud
 import copy
 import math
-import sys
 import sympy
 from sympy.geometry import *
 import time
 import pandas as pd
-import os
+# import sys
+# import os
 
 #ライフスパンの長さを比較する（一番大きいのを得る）
 def the_longest_lifespan_pair(pd1):
@@ -31,11 +31,12 @@ def get_pair_with_PD(pointcloud):
     pair = the_longest_lifespan_pair(pd1)
     return pair
 
-# 3次元データを2次元に変換する（z軸のデータを消す）関数
+# 3次元データを2次元に変換する（z軸のデータを消す）
 def three_to_two(p):
     newp = [[(p[i][0][0], p[i][0][1]), (p[i][1][0], p[i][1][1])] for i in range(len(p))]
     return newp
 
+#サイクルの長さを取得する
 def length(path):
     length = 0
     for i in range(len(path)):
@@ -63,6 +64,7 @@ def n_order(boundary):
                     return None
     return order
 
+#サイクルの面積を計算する
 def area(boundary):
     new_order = n_order(boundary)
     if new_order == None:
@@ -82,27 +84,31 @@ def area(boundary):
     area = math.fabs(polygon.area)
     return area
 
+
 def get_sv(pair, r):
     n = pair.lifetime()/r
     start = time.time()
     stable_volume = pair.stable_volume(n)
     end = time.time()
     path = three_to_two(stable_volume.boundary())
+    q = len(stable_volume.simplices())
     l = length(path)
     s = area(path)
-    #q = len(path)
     t = end-start
-    return [l, s, t]
+    return [q, l, s, t]
 
 def get_ov(pair):
     start = time.time()
     optimal_volume = pair.optimal_volume()
     end = time.time()
     path = three_to_two(optimal_volume.boundary())
+    q = len(optimal_volume.simplices())
     l = length(path)
     s = area(path)
     t = end-start
-    return [l, s, t]
+    return [q, l, s, t]
+
+
 
 def get_op1(pair):
     start = time.time()
@@ -116,8 +122,10 @@ def get_op1(pair):
 
 def main(data):
     pair = get_pair_with_PD(data)
+    sv5 = get_sv(pair, 5)
     sv10 = get_sv(pair, 10)
+    sv50 = get_sv(pair, 50)
     sv100 = get_sv(pair, 100)
     ov = get_ov(pair)
-    op1 = get_op1(pair)
-    return [sv10[0],sv100[0],ov[0],op1[0],sv10[1],sv100[1],ov[1],op1[1],sv10[2],sv100[2],ov[2],op1[2]]
+    #op1 = get_op1(pair)
+    return [sv5[0],sv10[0],sv50[0],sv100[0],ov[0],sv5[1],sv10[1],sv50[1],sv100[1],ov[1],sv5[2],sv10[2],sv50[2],sv100[2],ov[2],sv5[3],sv10[3],sv50[3],sv100[3],ov[3]]
