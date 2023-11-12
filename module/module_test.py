@@ -6,6 +6,9 @@ import random
 import math
 import time
 
+# number of points = n
+# number of trial = m
+
 def randomincircle(n):
     for i in range(n):
         theta = 2.0 * math.pi * random.random()
@@ -36,9 +39,6 @@ def pinched_circle(n):
                 data = np.append(data, p, axis=0)
     return data
 
-#number of points = n
-#number of trial = m
-
 def test_pinched_circle(n,m):
     lis_t = []
     for i in range(m):
@@ -46,7 +46,11 @@ def test_pinched_circle(n,m):
         data_3 = np.column_stack((data, 0.00005*np.random.rand(data.shape[0],1)))
         l = module_ph.main(data_3)
         lis_t += [l]
-    df = pd.DataFrame(lis_t,columns=['L-sv(10%)', 'L-sv(1%)', 'L-ov', 'L-op1c', 'S-sv(10%)', 'S-sv(1%)', 'S-ov', 'S-op1c', 'T-sv(10%)', 'T-sv(1%)', 'T-ov', 'T-op1c'])
+    column = ['Q-sv(20%)','Q-sv(10%)','Q-sv(2%)','Q-sv(1%)','Q-ov',
+              'L-sv(20%)','L-sv(10%)','L-sv(2%)','L-sv(1%)','L-ov',
+              'S-sv(20%)','S-sv(10%)','S-sv(2%)','S-sv(1%)','S-ov',
+              'T-sv(20%)','T-sv(10%)','T-sv(2%)','T-sv(1%)','T-ov',]
+    df = pd.DataFrame(lis_t,columns=column)
     return df
 
 def test_circle(n,m):
@@ -56,7 +60,11 @@ def test_circle(n,m):
         data_3 = np.column_stack((data, 0.00005*np.random.rand(data.shape[0],1)))
         l = module_ph.main(data_3)
         lis_t += [l]
-    df = pd.DataFrame(lis_t,columns=['L-sv(10%)', 'L-sv(1%)', 'L-ov', 'L-op1c', 'S-sv(10%)', 'S-sv(1%)', 'S-ov', 'S-op1c', 'T-sv(10%)', 'T-sv(1%)', 'T-ov', 'T-op1c'])
+    column = ['Q-sv(20%)','Q-sv(10%)','Q-sv(2%)','Q-sv(1%)','Q-ov',
+              'L-sv(20%)','L-sv(10%)','L-sv(2%)','L-sv(1%)','L-ov',
+              'S-sv(20%)','S-sv(10%)','S-sv(2%)','S-sv(1%)','S-ov',
+              'T-sv(20%)','T-sv(10%)','T-sv(2%)','T-sv(1%)','T-ov',]
+    df = pd.DataFrame(lis_t,columns=column)
     return df
 
 if __name__ == '__main__':
