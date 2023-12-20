@@ -1,1 +1,8 @@
-,
+卒業研究にて行ったPHの逆解析（可視化）のコードを記す
+
+・data_**.txt -> HomCloudにおける解析の再現性のためのデータ（**=maru, pinched_maru, tsutsu）
+・data_**_op.txt -> OptiPersLPにおける解析の再現性のためのデータ（**=maru, pinched_maru, tsutsu）
+・gen_data_**_op_1.txt, gen_data_**_op_i2p.txt -> OptiPersLPのdata_**_op.txtを入力としたときの出力（**=maru, pinched_maru, tsutsu）
+
+・poincloud-**.pdgm -> HomCloudのdata_**_op.txtを入力としたときのPHの出力（**=maru, pinched_maru, tsutsu）
+・visualization.ipynb -> jupyter notebook上における可視化のソースコード
