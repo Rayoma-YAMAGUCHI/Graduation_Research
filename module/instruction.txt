@@ -10,5 +10,5 @@
 ・module_test.py
 ・result.csv -> 2次元のリングの比較結果
 ・result_tsutsu.csv -> 3次元の筒の比較結果
-・
-
+・2d.ipynb -> 2次元リングの結果の解析
+・3d.ipynb -> 3次元の筒の結果の解析
