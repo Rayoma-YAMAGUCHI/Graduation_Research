@@ -1,5 +1,12 @@
-卒業研究のAppendixにて行ったMapper解析のコードを記す.
+卒業研究のAppendixにて行ったMapper解析のコードを記す
 
+<data>
+・board_shape -> カタログスペックのサンプルデータ
+
+<mapper>
 ・mapper.ipynb -> jupyter notebook上で行ったMapper解析のソースコード
 ・output -> mapperの出力の保存先(中のhtmlファイルに出力が記述される)
-・board_shape -> カタログスペックのサンプルデータ
+
+<pca>
+・pca.ipynb -> jupyter notebook上で行ったPCAのソースコード
+・PCA_multi_less_variable.png -> 出力結果
