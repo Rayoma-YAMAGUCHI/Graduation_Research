@@ -1,2 +1,5 @@
 卒業研究のAppendixにて行ったMapper解析のコードを記す.
-使用したデータも
+
+・mapper.ipynb -> jupyter notebook上で行ったMapper解析のソースコード
+・output -> mapperの出力の保存先(中のhtmlファイルに出力が記述される)
+・board_shape -> カタログスペックのサンプルデータ
