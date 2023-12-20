@@ -1,1 +1,12 @@
+卒業研究にて行ったPHの逆解析（定量的評価）のコードを記す
+
+<PHの逆解析>
+・module_ph.py
+
+<結果の検定>
+・module_cert.py
+
+<実行ファイル>
+・module_test.py
+・
 
