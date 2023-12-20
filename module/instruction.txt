@@ -8,5 +8,7 @@
 
 <実行ファイル>
 ・module_test.py
+・result.csv -> 2次元のリングの比較結果
+・result_tsutsu.csv -> 3次元の筒の比較結果
 ・
 
