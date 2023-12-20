@@ -1,4 +1,6 @@
 # graduation_research
+Python 2.7.10
+
 主要な使用パッケージのバージョン
 
 homcloud                 4.0.0
