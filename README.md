@@ -1,5 +1,5 @@
 # graduation_research
-Python 2.7.10
+Python 3.10.12
 
 主要な使用パッケージのバージョン
 
