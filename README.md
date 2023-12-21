@@ -1,8 +1,7 @@
 # graduation_research
 Python 3.10.12
 
-主要な使用パッケージのバージョン
-
+### 主要な使用パッケージのバージョン
 homcloud                 4.0.0
 
 pyvista                  0.39.1
