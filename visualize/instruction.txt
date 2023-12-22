@@ -6,3 +6,5 @@
 
 ・poincloud-**.pdgm -> HomCloudのdata_**_op.txtを入力としたときのPHの出力（**=maru, pinched_maru, tsutsu）
 ・visualization.ipynb -> jupyter notebook上における可視化のソースコード
+
+・plateau.ipynb -> jupyter notebook上におけるノイズ幅を変えた実験のソースコード
