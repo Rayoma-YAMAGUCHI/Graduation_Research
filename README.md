@@ -1,4 +1,4 @@
-# graduation_research
+# Graduation_Research
 Python 3.10.12
 
 ### 主要な使用パッケージのバージョン
